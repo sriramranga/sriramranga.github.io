@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sriram Rajagopal - Product Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #fafaf8;
+            --text: #1a1a1a;
+            --accent: #c44536;
+            --secondary: #5a5a5a;
+            --border: #e0e0dc;
+            --link-hover: #922e21;
+        }
+
+        body {
+            font-family: 'Crimson Pro', Georgia, serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            font-size: 18px;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 80px;
+            padding: 60px 40px;
+        }
+
+        aside {
+            position: sticky;
+            top: 60px;
+            height: fit-content;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.02);
+        }
+
+        aside h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        aside .tagline {
+            font-family: 'DM Mono', monospace;
+            font-size: 13px;
+            color: var(--secondary);
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        nav li {
+            margin-bottom: 8px;
+        }
+
+        nav a {
+            font-family: 'DM Mono', monospace;
+            font-size: 14px;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .links a {
+            font-size: 15px;
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .links a::after {
+            content: '→';
+            opacity: 0;
+            position: absolute;
+            right: -20px;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            color: var(--link-hover);
+        }
+
+        .links a:hover::after {
+            opacity: 1;
+            right: -24px;
+        }
+
+        main {
+            padding-top: 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .intro {
+            font-size: 20px;
+            margin-bottom: 48px;
+            color: var(--text);
+        }
+
+        .intro strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(196, 69, 54, 0.04) 0%, rgba(196, 69, 54, 0.08) 100%);
+            border-left: 3px solid var(--accent);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border);
+            font-family: 'DM Mono', monospace;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 24px;
+            }
+
+            aside {
+                position: static;
+                border-bottom: 1px solid var(--border);
+                padding-bottom: 32px;
+            }
+
+            main {
+                padding-top: 0;
+            }
+
+            .intro {
+                font-size: 18px;
+            }
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <img src="profile.jpg" alt="Sri R" class="profile-photo">
+            <h1>Sri R</h1>
+            <div class="tagline">Product Leader</div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#background">Background</a></li>
+                    <li><a href="#beyond">Beyond Work</a></li>
+                </ul>
+            </nav>
+
+            <div class="links">
+                <a href="https://www.linkedin.com/in/sriram2021/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/sriramranga" target="_blank">GitHub</a>
+            </div>
+        </aside>
+
+        <main>
+            <section id="home">
+                <div class="intro">
+                    I'm <strong>Sri</strong>, a product management leader currently at <a href="https://zalando.com" style="color: var(--accent); text-decoration: none;" target="_blank">Zalando</a>, Europe's leading fashion e-commerce platform.
+                </div>
+
+                <p>I lead livestream commerce initiatives as Senior Principal Product Manager, managing cross-functional teams across European and China engineering organizations. My work sits at the intersection of product leadership, international team management, and technical platform development—building scalable commerce experiences that connect content, technology, and customer engagement.</p>
+
+                <p>Over 15+ years in consumer and B2B tech product management, I've focused on platform building, international commerce, and increasingly, AI applications in retail and consumer tech.</p>
+
+                <div class="highlight-box">
+                    <p>Previously, I spent nearly 6 years at Amazon Luxembourg as a Bar Raiser, working across multiple product domains: launching SMB Prime to Italy and Spain, managing identity verification and registration products, and later leading Business Prime partnerships and integrations across US and EU markets. I hold an MBA from INSEAD, one of the world's leading business schools, with emphasis on cross-cultural collaboration and strategic thinking.</p>
+                </div>
+            </section>
+
+            <section id="about">
+                <h2>Current Focus</h2>
+                <p>At Zalando, I'm executing on platform evolution for livestream commerce across European markets. This involves cross-functional stakeholder coordination across multiple organizational layers, building technical infrastructure for real-time interactive shopping, and running structured experiments to optimize engagement and conversion patterns.</p>
+
+                <p>Beyond the day-to-day execution, I'm interested in AI automation for product workflows. I build tools for meeting transcription, stakeholder sentiment tracking, and calendar management—learning AI through practice while optimizing my work and personal life. My 2026 resolution is to write weekly over weekends, documenting what I'm building and learning.</p>
+            </section>
+
+            <section id="background">
+                <h2>An Unusual Path</h2>
+                <p>My background is unconventional for product management. I started with a Chemistry honors degree, working on analytical chemistry and synthetic nanochemistry in undergrad. The pivot to technology management came through the Stanford-NUS Overseas Colleges program, where I joined a startup (tencube) and taught myself programming and technical fundamentals along the way.</p>
+
+                <p>This chemistry-to-tech trajectory gave me comfort with scientific thinking, technical depth, and the ability to learn new domains quickly. The INSEAD MBA later added commercial acumen, financial fluency, and strategic frameworks—evolving me from pure technical execution to leadership and business strategy.</p>
+
+                <p>In 2023-2024, I launched <strong>tastytiger</strong>, bringing my grandmother's recipes to Western Europe through hot sauces and tapenades. The project merged my passion for cooking with product development, though I paused it when I moved to Berlin in 2024. It was about making something real and marketable from personal heritage.</p>
+            </section>
+
+            <section id="beyond">
+                <h2>Beyond Work</h2>
+                
+                <p><strong>Carnatic Music:</strong> I've been training in Carnatic classical music since 4th standard—20 years since I left India. I train with Dr. Nithyasree Mahadevan, who comes from illustrious musical lineage. I also studied under Mrs. Banumathy Raghuraman in Singapore, daughter of Dr. S. Ramanathan, the legendary musician. Moving across countries limited my ability to train as a performer, but I'm technically adept and perform regularly in Europe in smaller forums. I also play the veena as an amateur.</p>
+
+                <p><strong>Muay Thai:</strong> Started training in late 2025 as part of a personal reset, with an intensive month-long camp in Thailand (November-December 2025). Continuing through 2026 as a discipline and physical practice.</p>
+
+                <p><strong>Languages:</strong> I speak English, Hindi, Tamil, intermediate French, and basic Luxembourgish. Now based in Berlin for two years, I'm picking up basic German. I post in different languages on social media as a way to teach myself through practice—learning by doing rather than formal study.</p>
+
+                <p>Based in Berlin, navigating life between cultures, building products, and constantly learning.</p>
+            </section>
+
+            <footer>
+                <p>Berlin, Germany • 2026</p>
+            </footer>
+        </main>
+    </div>
+</body>
+</html>
